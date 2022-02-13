@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static './css/home.css' %}">
+{% endblock head %}
+
+{% block title %}
+<title>WEBSTORE | HOME</title>
+{% endblock title %}
+
+{% block body %}
+
+<div class="favModels">
+    <p class="heading">Our favorite models</p>
+
+    <div class="shoesCase">
+
+        {% for product in products %}
+            {% if product.featured %}
+                <a href="#">
+                    <div class="shoeBox">
+                        <div class="shoeBoxImg" style="background-image: url('{% static './media/shoe.jpg' %}');"></div>
+                        <div class="shoeBoxDetails">
+                            <p class="subheading">{{product.product_name}}</p>
+                            {% if product.stock_out %}
+                                <p>Out of Stock</p>
+                            {% else %}
+                                {% if product.discount %}
+                                    <div style="display: flex; flex-direction: row;">
+                                        <p style="text-decoration: line-through; color: rgb(168, 0, 0);">Rs. {{product.price}}</p>
+                                        <p style="color: green; margin-left: .5em;">Rs. {{product.discount}}</p>
+                                    </div>
+                                {% else %}
+                                    <p>Rs. {{product.price}}</p>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+</div>
+
+<div class="shopModels">
+    <p class="heading">Shop latest shoes</p>
+
+    <div class="shoesCase">
+
+        {% for product in products %}
+            <a href="#">
+                <div class="shoeBox">
+                    <div class="shoeBoxImg" style="background-image: url('{% static './media/shoe.jpg' %}');"></div>
+                    <div class="shoeBoxDetails">
+                        <p class="subheading">{{product.product_name}}</p>
+                        {% if product.stock_out %}
+                            <p>Out of Stock</p>
+                        {% else %}
+                            {% if product.discount %}
+                                <div style="display: flex; flex-direction: row;">
+                                    <p style="text-decoration: line-through; color: rgb(168, 0, 0);">Rs. {{product.price}}</p>
+                                    <p style="color: green; margin-left: .5em;">Rs. {{product.discount}}</p>
+                                </div>
+                            {% else %}
+                                <p>Rs. {{product.price}}</p>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+
+    </div>
+
+    <p class="showAll">You've reached the end of our collection... :(</p>
+</div>
+
+
+{% endblock body %}

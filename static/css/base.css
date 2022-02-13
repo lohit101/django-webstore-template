@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+.nav {
+    position: sticky;
+    top: .75em;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 4em;
+    margin: .75em .75em 0em .75em;
+    padding: 0em 1.5em;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: row;
+}
+
+.navLink {
+    margin: 0em 1em;
+    list-style: none;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    transition: 500ms ease;
+}
+
+.navLink:hover {
+    border-bottom: 1px solid black;
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 0em;
+    margin: 0em .75em;
+    padding: 0em 1.5em;
+    opacity: 0;
+    position: sticky;
+    top: 4.75em;
+    z-index: 999;
+    transition: 500ms ease;
+}
+
+.searchInput {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+.dark {
+    height: 100vh;
+    width: 100vw;
+    opacity: 1;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: 500ms ease;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    padding: 0em 5em;
+    font-size: 0.8em;
+}
+
+.footerUpper {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+}
+
+.footerBlock {
+    padding: 1em;
+}
+
+.footerLower {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2em 0em;
+}
+
+.newsLetterInput {
+    border: none;
+    border-bottom: 1px solid black;
+    width: 30em;
+    height: 1.5em;
+    padding: .5em;
+}
+
+.newsLetterInput::placeholder {
+    padding: .5em;
+}
+
+.newsLetterSubBtn {
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 0.5em;
+    border-radius: 2px;
+}
+
+.footerBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerLink {
+    /* font-style: oblique; */
+    transition: 500ms ease;
+}
+
+.footerLink:hover {
+    font-weight: 500;
+}
+
+.footer__payment-methods {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
