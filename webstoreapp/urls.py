@@ -16,9 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from webstoreapp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('home/', views.home, name='home'),
     path('products/', views.products, name='products'),
-]
+    path('products/search/', views.search, name='search'),
+    path('product/<slug>', views.productView, name='productView'),
+    path('checkout', views.checkout, name='checkout'),
+] 
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

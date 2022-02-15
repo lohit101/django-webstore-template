@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static './css/home.css' %}">
+<link rel="stylesheet" href="{% static './css/productview.css' %}">
+{% endblock head %}
+
+{% block title %}
+<title>WEBSTORE | {{product.product_name}}</title>
+{% endblock title %}
+
+{% block body %}
+
+<div class="productWrapper">
+    <div class="imageContainer">
+        <img src="{{product.product_image.url}}" alt="{{product.product_name}}">
+    </div>
+    <div class="detailsContainer">
+        <p class="heading">{{product.product_name}}</p>
+        {% if not product.in_stock %}
+            <p style="color: #585858; margin-top: 1em;">Out of Stock</p>
+            <div class="productDescription">
+                <h3 class="productDetails">Description</h3>
+                <p>{{product.product_details}}</p>
+            </div>
+            <button type="submit" class="addToCartBtn"><img style="margin: 0em .5em 0em 0em; width: 1.5em;" src="https://img.icons8.com/material-rounded/24/ffffff/shopping-bag.png"/>Add to Bag</button>
+        {% else %}
+            {% if product.discount %}
+                <div style="display: flex; flex-direction: column;">
+                    <h3 class="productDetails">Price</h3>
+                    <p style="text-decoration: line-through; color: rgb(168, 0, 0);">Rs. {{product.price}}</p>
+                    <p style="color: green;">Rs. {{product.discount}}</p>
+                </div>
+                <div class="productDescription">
+                    <h3 class="productDetails">Description</h3>
+                    <p>{{product.product_details}}</p>
+                </div>
+                <button type="submit" class="addToCartBtn"><img style="margin: 0em .5em 0em 0em; width: 1.5em;" src="https://img.icons8.com/material-rounded/24/ffffff/shopping-bag.png"/>Add to Bag</button>
+            {% else %}
+                <h3 class="productDetails">Price</h3>
+                <p>Rs. {{product.price}}</p>
+                <div class="productDescription">
+                    <h3 class="productDetails">Description</h3>
+                    <p>{{product.product_details}}</p>
+                </div>
+                <button type="submit" class="addToCartBtn"><img style="margin: 0em .5em 0em 0em; width: 1.5em;" src="https://img.icons8.com/material-rounded/24/ffffff/shopping-bag.png"/>Add to Bag</button>
+            {% endif %}
+        {% endif %}
+        <ul class="featuresList">
+            <li>
+                <p>Pay with Mastercard, Visa, PayPal, PayTM, and all major payment providers</p>
+            </li>
+            <li>
+                <p>Order with free Indian standard shipping</p>
+            </li>
+            <li>
+                <p>Replenishment service: free new laces upon request</p>
+            </li>
+            <li>
+                <p>Comes with the original box</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="favModels infoPanel">
+    <h3 class="infoPanelHeading">Information</h3>
+    <h3 class="infoPanelSubheading">Shipping</h3>
+    <p class="infoPanelPara">We ship all over India and offer free standard shipping.</p>
+    <h3 class="infoPanelSubheading">Sizing</h3>
+    <p class="infoPanelPara">Fits true to size. If you're looking for a half size, we recommend to take one size up.</p>
+    <h3 class="infoPanelSubheading">Return &amp Exchange</h3>
+    <p class="infoPanelPara">Orders can not be returned or exchanged once the payment has been completed.</p>
+    <h3 class="infoPanelSubheading">Help</h3>
+    <p class="infoPanelPara">Need some help? Call us on our helpline, or contact our customer care by email.</p>
+</div>
+
+<div class="favModels">
+    <p class="heading">You might also like</p>
+
+    <div class="shoesCase">
+
+        {% for product in products_suggestion %}
+            <a href="/product/{{product.slug}}">
+                <div class="shoeBox">
+                    <div class="shoeBoxImg" style="background-image: url('{{product.product_image.url}}');"></div>
+                    <div class="shoeBoxDetails">
+                        {% if not product.in_stock %}
+                            <p class="subheading" style="color: #adadad;">{{product.product_name}}</p>
+                            <p style="color: #adadad;">Out of Stock</p>
+                            {% else %}
+                            {% if product.discount %}
+                                <p class="subheading">{{product.product_name}}</p>
+                                <div style="display: flex; flex-direction: row;">
+                                    <p style="text-decoration: line-through; color: rgb(168, 0, 0);">Rs. {{product.price}}</p>
+                                    <p style="color: green; margin-left: .5em;">Rs. {{product.discount}}</p>
+                                </div>
+                            {% else %}
+                                <p class="subheading">{{product.product_name}}</p>
+                                <p>Rs. {{product.price}}</p>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock body %}

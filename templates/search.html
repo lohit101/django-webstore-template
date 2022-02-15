@@ -6,48 +6,13 @@
 {% endblock head %}
 
 {% block title %}
-<title>WEBSTORE | Products</title>
+<title>WEBSTORE | {{search_query}}</title>
 {% endblock title %}
 
 {% block body %}
 
-<div class="favModels">
-    <p class="heading">Our favorite models</p>
-
-    <div class="shoesCase">
-
-        {% for product in products %}
-            {% if product.featured %}
-                <a href="/product/{{product.slug}}">
-                    <div class="shoeBox">
-                        <div class="shoeBoxImg" style="background-image: url('{{product.product_image.url}}');"></div>
-                        <div class="shoeBoxDetails">
-                            {% if not product.in_stock %}
-                                <p class="subheading" style="color: #adadad;">{{product.product_name}}</p>
-                                <p style="color: #adadad;">Out of Stock</p>
-                                {% else %}
-                                {% if product.discount %}
-                                    <p class="subheading">{{product.product_name}}</p>
-                                    <div style="display: flex; flex-direction: row;">
-                                        <p style="text-decoration: line-through; color: rgb(168, 0, 0);">Rs. {{product.price}}</p>
-                                        <p style="color: green; margin-left: .5em;">Rs. {{product.discount}}</p>
-                                    </div>
-                                {% else %}
-                                    <p class="subheading">{{product.product_name}}</p>
-                                    <p>Rs. {{product.price}}</p>
-                                {% endif %}
-                            {% endif %}
-                        </div>
-                    </div>
-                </a>
-            {% endif %}
-        {% endfor %}
-
-    </div>
-</div>
-
 <div class="shopModels">
-    <p class="heading">Shop latest shoes</p>
+    <p class="heading">Similar search results</p>
 
     <div class="shoesCase">
 

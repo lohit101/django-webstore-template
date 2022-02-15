@@ -39,7 +39,10 @@
     </nav>
 
     <div class="search" id="searchInput">
-        <input type="text" class="searchInput" placeholder="Start typing what you're looking for...">
+        <form action="/products/search/" method="POST">
+            {% csrf_token %}
+            <input type="text" class="searchInput" name="searchInput" placeholder="Start typing what you're looking for...">
+        </form>
     </div>
 
     <div class="dark" id="dark"></div>

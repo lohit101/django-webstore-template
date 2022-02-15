@@ -5,6 +5,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+::selection {
+    color: white;
+    background: black;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -63,7 +68,7 @@ input:focus, textarea:focus, select:focus{
 .searchInput {
     background-color: transparent;
     border: none;
-    width: 100%;
+    width: 90vw;
     font-size: 2em;
     font-weight: 300;
 }

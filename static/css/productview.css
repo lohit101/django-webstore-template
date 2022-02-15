@@ -1,0 +1,66 @@
+.productWrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.imageContainer img {
+    min-height: 90vh;
+    max-height: 90vh;
+}
+
+.productDetails {
+    font-weight: 400;
+    text-decoration: underline;
+    margin: 1em 0em 0em 0em;
+}
+
+.addToCartBtn {
+    margin: 2em 0em;
+    min-width: 30em;
+    width: 100%;
+    height: 5em;
+    border: none;
+    background-image: linear-gradient(to bottom right, rgb(56, 56, 56), black);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    transition: 500ms ease;
+}
+
+.addToCartBtn:hover {
+    height: 7.5em;
+}
+
+.featuresList {
+    font-size: .8em;
+    align-self: center;
+}
+
+.infoPanel {
+    margin: 5em 2em;
+}
+
+.infoPanelHeading {
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+
+.infoPanelSubheading {
+    font-weight: 600;
+    font-size: 1em;
+    text-decoration: underline;
+}
+
+.infoPanelPara {
+    font-size: .9em;
+    margin-bottom: 1em;
+}
