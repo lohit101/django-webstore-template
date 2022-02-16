@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static './css/home.css' %}">
+<link rel="stylesheet" href="{% static './css/cart.css' %}">
+{% endblock head %}
+
+{% block title %}
+<title>WEBSTORE | Checkout</title>
+{% endblock title %}
+
+{% block body %}
+
+    <div class="cartContainer">
+        <p class="subheading">Your bag</p>
+
+        <div class="cartGrid">
+            <div class="cartGridHead">
+                <h5>Name</h5>
+                <h5>Price</h5>
+            </div>
+            <div class="headDivider"></div>
+            {% if cartInfo %}
+                <div class="cartInfo">
+                    <p>No items in cart</p>
+                    <a href="/" class="goShoppingBtn">Go shopping</a>
+                </div>
+            {% else %}
+                {% for product in products %}
+                <a href="/product/{{product.slug}}">
+                    <div class="cartGridMain">
+                        <div class="cartGridMainName">
+                            <img class="cartGridMainImg" src="{{product.product_image.url}}" alt="SHOE">
+                            <p class="cartGridMainPara">{{product.product_name}}</p>
+                        </div>
+                        <div class="cartGridPrice">
+                            <div class="currency">Rs. </div>
+                            {% if product.discount %}
+                                <div id="price" class="price">{{product.discount}}</div>
+                            {% else %}
+                                <div id="price" class="price">{{product.price}}</div>
+                            {% endif %}
+                            <form action="#" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{product.slug}}" name="remove">
+                                <button class="removeFromCartBtn" type="submit">Remove</button>
+                            </form>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endblock body %}

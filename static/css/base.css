@@ -71,6 +71,7 @@ input:focus, textarea:focus, select:focus{
     width: 90vw;
     font-size: 2em;
     font-weight: 300;
+    pointer-events: all;
 }
 
 .dark {
@@ -148,4 +149,15 @@ input:focus, textarea:focus, select:focus{
     list-style: none;
     display: flex;
     flex-direction: row;
+}
+
+.footerExtra {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerExtraPara {
+    color: gray;
+    margin-bottom: 1em;
+    font-size: .8em;
 }

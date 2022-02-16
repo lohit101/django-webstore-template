@@ -1,0 +1,13 @@
+DEPLOY 1
+- Working Home page
+- Working Products page
+- Working products database
+
+DEPLOY 2
+- All products have their unique ID
+- Added product view
+- Admin table sorting by available stock
+- Improved performance
+
+DEPLOY 3
+- Bug fixes
